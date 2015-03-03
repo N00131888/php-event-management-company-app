@@ -18,7 +18,7 @@ class LocationTableGatewayTableGateway {
         if (!$status) {
             die("Could not retrieve locations");
         }
-        
+        //test 
         return $statement;
     }
     
