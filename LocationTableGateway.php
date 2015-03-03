@@ -40,35 +40,34 @@ class LocationTableGatewayTableGateway {
         return $statement;
     }
     
-    public function insertLocation($t, $d, $sd, $ed, $ma, $c, $n, $e){
-        $sqlQuery = "INSERT INTO event " .
-                "(title, description, startDateTime, endDateTime, maxAttendees, cost, name, email)" .
-                "VALUES (:title, :description, :startDateTime, :endDateTime, :maxAttendees, :cost, :name, :email)";
+    public function insertLocation($n, $a, $lma, $mn, $me, $mm){
+        $sqlQuery = "INSERT INTO location " .
+                "(name, address, locMaxAttendees, manName, manEmail, manMobile)" .
+                "VALUES (:name, :address, :locMaxAttendees, :manName, :manEmail, :manMobile)";
         
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
-            "title" => $t,
-            "description" => $d,
-            "startDateTime" => $sd,
-            "endDateTime" => $ed,
-            "maxAttendees" => $ma,
-            "cost" => $c,
             "name" => $n,
-            "email" => $e
-    );
-        
-    $status = $statement->execute($params);
-    
-    if(!$status){
-        die("Could not insert event");
+            "address" => $a,
+            "locMaxAttendees" => $lma,
+            "manName" => $mn,
+            "manEmail" => $me,
+            "manMobile" => $mm            
+        );
+
+        $status = $statement->execute($params);
+
+        if(!$status){
+            die("Could not insert location");
+        }
+
+        $id = $this->connection->lastInsertId();
+
+        return $id;
     }
     
-    $id = $this->connection->lastInsertId();
-    
-    return $id;
-    }
-    public function deleteEvent($id) {
-        $sqlQuery = "DELETE FROM event WHERE eventID = :id";
+    public function deleteLocation($id) {
+        $sqlQuery = "DELETE FROM location WHERE locationID = :id";
 
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
@@ -78,36 +77,32 @@ class LocationTableGatewayTableGateway {
         $status = $statement->execute($params);
 
         if (!$status) {
-            die("Could not delete user");
+            die("Could not delete location");
         }
 
         return ($statement->rowCount() == 1);
     }
     
-    public function updateEvent($id, $t, $d, $sd, $ed, $ma, $c, $n, $e){
+    public function updateLocation($id, $n, $a, $lma, $mn, $me, $mm){
             $sqlQuery = 
-                "UPDATE event SET " .
-                "title = :title, " .
-                "description = :description, " .
-                "startDateTime = :startDateTime, " .
-                "endDateTime = :endDateTime,  " .
-                "maxAttendees = :maxAttendees, " .
-                "cost = :cost, " .
+                "UPDATE location SET " .
                 "name = :name, " .
-                "email = :email " .
+                "address = :address, " .
+                "locMaxAttendees = :locMaxAttendees, " .
+                "manName = :manName,  " .
+                "manEmail = :manEmail, " .
+                "manMobile = :manMobile, " .             
                 "WHERE eventID = :eventID";
             
             $statement = $this->connection->prepare($sqlQuery);
             $params = array(
-                "eventID" => $id,
-                "title" => $t,
-                "description" => $d,
-                "startDateTime" => $sd,
-                "endDateTime" => $ed,
-                "maxAttendees" => $ma,
-                "cost" => $c,
+                "locationID" => $id,
                 "name" => $n,
-                "email" => $e
+                "address" => $a,
+                "locMaxAttendees" => $lma,
+                "manName" => $mn,
+                "manEmail" => $me,
+                "manMobile" => $mm              
             );
             
             $status = $statement->execute($params);
