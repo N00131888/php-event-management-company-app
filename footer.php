@@ -1,0 +1,1 @@
+<h5>&copy; Event Management Company, 2015</h5>
