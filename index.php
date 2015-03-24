@@ -31,7 +31,55 @@ $statement = $gateway->getEvents();
             echo '<p>'.$message.'</p>';
         }
         ?>
-        <table>
+        
+        <div id = "header">
+		<div class = "row">
+			<div class = "col-lg-4">
+						
+		</div>
+		<div class = "col-lg-offset-3 col-lg-1 nav ">
+			<a href = "contact.html" class = "navBtn">Contact</a>
+		</div>
+		<div class = "col-lg-1 nav">
+			<a href = "register.html"  class = "navBtn">Sign Up</a>
+		</div>
+		<div class = "col-lg-1 nav">
+			<a href = "contact.html" class = "navBtn">Log Out</a>
+		</div>
+
+		<div class = "col-lg-1 nav">
+			<a class = "navBtn"></a>
+		</div>
+		<div class = "col-lg-1 nav">
+			<a class = "navBtn"></a>
+		</div>
+	</div>
+</div>
+        <div id = "dashboard">
+			<div class = "row">
+				<div class = "col-md-2 col-md-offset-2 userPic"><img src = "img/userimg.png" width = "175" height = "125" class = "userImg img-thumbnail"></div>
+				<div class = "col-md-5 userText"><p><strong>Welcome: </strong></p>
+				<img src = "img/location.png">Dublin, Ireland
+				<img src = "img/message.png">Send Message<br>
+				<img src = "img/Create.png" class = "iconspace">Create
+				<img src = "img/edit.png">Edit
+				<img src = "img/delete.png">Delete
+				</div>
+				<div class = "col-md-3">
+					
+				</div>
+			</div>
+			
+			
+			<hr class = "short"></hr>
+        
+        <div class = "row">
+        <div class = "col-md-8 col-md-offset-2">
+            <h2>Database Tables</h2>
+                <p>View Your Database Tables Below:</p> 
+                    <h3>Events Table</h3>
+        <div class ="table-responsive">
+        <table class = "table table-striped">
             <thead>
                 <tr>
                     <th>Title</th>
@@ -65,6 +113,8 @@ $statement = $gateway->getEvents();
                 ?>
             </tbody>
         </table>
+      </div>
+    </div>
         <p><a href="createEventForm.php">Create Event</a></p>
         <?php require 'footer.php' ?>
     </body>
