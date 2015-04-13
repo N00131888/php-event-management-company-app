@@ -18,14 +18,13 @@ class LocationTableGateway{
         $status = $statement->execute();
 
         if (!$status) {
-            die("Could not retrieve programmers");
+            die("Could not retrieve locations");
         }
 
         return $statement;
     }
     
-    public function getLocationManagerByLocationID($venueID) {
-        // execute a query to get all programmers
+    public function getLocationManagerByLocationID($venueID) {        
         $sqlQuery =
                 "SELECT l.*, lm.lName AS manName
                  FROM location l
