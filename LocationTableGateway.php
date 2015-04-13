@@ -1,6 +1,6 @@
 <?php
 
-class LocationTableGatewayTableGateway {
+class LocationTableGateway{
 
     private $connection;
     
@@ -92,7 +92,7 @@ class LocationTableGatewayTableGateway {
                 "manName = :manName,  " .
                 "manEmail = :manEmail, " .
                 "manMobile = :manMobile, " .             
-                "WHERE eventID = :eventID";
+                "WHERE locationID = :locationID";
             
             $statement = $this->connection->prepare($sqlQuery);
             $params = array(

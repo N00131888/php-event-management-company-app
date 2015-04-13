@@ -13,7 +13,7 @@ require 'ensureUserLoggedIn.php';
 if (!isset($_GET) || !isset($_GET['id'])) {
     die('Invalid request');
 }
-$id = $_GET['id'];
+$id = $_GET['eventID'];
 
 $connection = Connection::getInstance();
 $gateway = new EventTableGateway($connection);
