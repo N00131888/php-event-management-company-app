@@ -7,7 +7,7 @@ class LocationTableGateway{
     public function __construct($c) {
         $this->connection = $c;
     }
-    
+    //s
     public function getLocations() {
         // execute a query to get all events
         $sqlQuery = "SELECT * FROM location";
