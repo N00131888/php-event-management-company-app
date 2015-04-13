@@ -1,1 +1,0 @@
-<h1>Event Management Company Application</h1>
